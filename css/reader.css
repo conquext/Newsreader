@@ -1,0 +1,134 @@
+.post-container {
+  /* background-color: #fff; */
+}
+
+.entry-title {
+  font-family: "Roboto";
+  color: inherit;
+  column-width: 300px;
+  text-transform: capitalize;
+  margin-bottom: 5px;
+  font-size: 3.3rem;
+  color: rgb(25, 52, 73);
+  letter-spacing: 10px;
+  font-weight: bolder;
+}
+
+.entry-content {
+  margin-bottom: 2rem;
+  height: auto;
+  vertical-align: 100%;
+}
+
+.entry-content p {
+  text-align: left;
+  font-size: 14px;
+}
+
+.entry-footer {
+  margin-bottom: 30px;
+}
+
+.entry-comments {
+  text-align: left;
+  display: block;
+}
+
+.comment-form {
+  min-width: 25rem;
+}
+
+.screen-reader-text {
+  text-align: left;
+  margin: 30px;
+}
+
+.comment-respond {
+  /* float: left; */
+  clear: both;
+  display: block;
+  /* min-width: 45rem; */
+  /* width: 100%; */
+}
+
+.comment-form-comment textarea {
+  width: 80%;
+  /* float: left; */
+  margin-top: 30px;
+  margin-bottom: 1px;
+}
+
+.comment-form-comment textarea,
+input {
+  outline: none;
+}
+
+.comment-update-form textarea,
+input {
+  outline: none;
+}
+
+.comment-update-form textarea {
+  width: 100%;
+  background: #fff;
+  border-radius: 10px;
+  font-size: 11px;
+  padding: 10px 15px;
+  /* float: left; */
+  /* margin-top: 30px; */
+  margin-bottom: 1px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+  border: none;
+  height: 60%;
+}
+
+.update {
+  border: 2px solid white;
+  user-select: none;
+  cursor: pointer;
+  border-width: 1px;
+  border-image: initial;
+  border-color: rgb(216, 216, 216) rgb(209, 209, 209) rgb(186, 186, 186);
+  -webkit-appearance: push-button;
+}
+
+.cancel {
+  border: 2px solid white;
+  user-select: none;
+  cursor: pointer;
+  border-width: 1px;
+  border-image: initial;
+  border-color: rgb(216, 216, 216) rgb(209, 209, 209) rgb(186, 186, 186);
+  padding: 1px 7px 2px;
+}
+
+.comment-form-author {
+  margin-bottom: 5px;
+  outline: none;
+
+  /* clear: both; */
+}
+.hidden-footer {
+  background-color: #333;
+  color: #fff;
+  padding: 60px 0;
+}
+
+.form-submit input:hover {
+  background: rgb(51, 51, 51, 0.4);
+  cursor: pointer;
+  outline: none;
+}
+
+@media only screen and (min-width: 1200px) {
+  .post-container.add-margin {
+    position: relative;
+    z-index: 1;
+  }
+  .post-container.add-margin + .hidden-footer {
+    bottom: 0;
+    left: 0;
+    position: fixed;
+    right: 0;
+  }
+}

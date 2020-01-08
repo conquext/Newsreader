@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+
+    <link
+      href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900"
+      rel="stylesheet"
+    />
+    <!--load all styles -->
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"
+      integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU"
+      crossorigin="anonymous"
+    />
+
+    <link rel="stylesheet" href="css/icon-font.css" />
+    <link rel="stylesheet" href="css/comments.css" />
+    <link rel="stylesheet" href="css/load.css" />
+    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="stylesheet" href="css/newpost.css" />
+    <link rel="stylesheet" href="css/reader.css" />
+    <link rel="stylesheet" href="css/slider.css" />
+
+    <link rel="shortcut icon" href="img/logo-white.png" type="image/png" />
+
+    <title>NewsReader | Exciting News for developers</title>
+  </head>
+
+  <body>
+    <header>
+      <h1>The NewsReader</h1>
+      <p class="heading">
+        All the news from around the world, brought together for
+        <strong>you!</strong>
+      </p>
+      <small><br />&darr;</small>
+    </header>
+    <nav id="topNav">
+      <h1 id="logo" class="logo">The NewsReader</h1>
+      <ul class="nav-items">
+        <li><a href="#" id="all" class="active">All</a></li>
+        <li><a href="#" id="today">Today</a></li>
+        <li><a href="#" id="yesterday">Yesterday</a></li>
+        <li><a href="#" id="1week">This Week</a></li>
+        <li><a href="#" id="old">Old News</a></li>
+      </ul>
+    </nav>
+
+    <main>
+      <div class="main"></div>
+      <div class="newpost">
+        <section class="section-add">
+          <div class="blog-edit">
+            <!-- Form Script-->
+            <form
+              name=""
+              class="newpost-form"
+              enctype="multipart/form-data"
+              method="post"
+            >
+              <em
+                class="fas fa-long-arrow-alt-left"
+                onclick="window.location.href = document.referrer;"
+              ></em>
+              <h2>Add a new blog post</h2>
+              <div class="post-title">
+                <p>Post Title:</p>
+                <input
+                  class="cat_textbox_small"
+                  type="text"
+                  name="postTitle"
+                  id="postTitle"
+                  maxlength="255"
+                  aria-required="true"
+                  required
+                />
+              </div>
+
+              <div class="post-text">
+                <p>Type your blogpost here:</p>
+                <textarea
+                  name="postDescription"
+                  id="postDescription"
+                  class="cat_listbox"
+                  value=""
+                  onfocus="this.value=''; this.style.background= '#ecf0f1';"
+                  onblur="this.style.background = 'white'"
+                >
+                </textarea>
+              </div>
+
+              <div class="post-url">
+                <p>Url:</p>
+                <input
+                  class="cat_textbox_smaller"
+                  type="url"
+                  name="postURL"
+                  id="postURL"
+                  maxlength="255"
+                />
+              </div>
+
+              <div class="photo-upload">
+                <p><em class="fa fa-photo"></em> Please upload a photo</p>
+                <input
+                  type="file"
+                  name="postImg"
+                  id="postImg"
+                  class="cat_textbox"
+                />
+              </div>
+
+              <div class="post-options">
+                <h3>Post Options</h3>
+                <table>
+                  <tr>
+                    <th class="date">
+                      <em class="fa fa-calendar-alt"></em> Select today's date
+                    </th>
+                    <th class="name">
+                      <em class="fa fa-user-plus"></em> Your Name
+                    </th>
+                  </tr>
+                  <tr>
+                    <td>
+                      <select name="postDay" id="postDay" class="cat_dropdown">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                        <option value="11">11</option>
+                        <option value="12">12</option>
+                        <option value="13">13</option>
+                        <option value="14">14</option>
+                        <option value="15">15</option>
+                        <option value="16">16</option>
+                        <option value="17">17</option>
+                        <option value="18">18</option>
+                        <option value="19">19</option>
+                        <option value="20">20</option>
+                        <option value="21">21</option>
+                        <option value="22">22</option>
+                        <option value="23">23</option>
+                        <option value="24">24</option>
+                        <option value="25">25</option>
+                        <option value="26">26</option>
+                        <option value="27">27</option>
+                        <option value="28">28</option>
+                        <option value="29">29</option>
+                        <option value="30">30</option>
+                        <option value="31">31</option>
+                      </select>
+
+                      <select
+                        name="postMonth"
+                        id="postMonth"
+                        class="cat_dropdown"
+                      >
+                        <option value="January">January</option>
+                        <option value="February">February</option>
+                        <option value="March">March</option>
+                        <option value="April">April</option>
+                        <option value="May">May</option>
+                        <option value="June">June</option>
+                        <option value="July">July</option>
+                        <option value="August">August</option>
+                        <option value="September">September</option>
+                        <option value="October">October</option>
+                        <option value="November">November</option>
+                        <option value="December">December</option>
+                      </select>
+                      <select
+                        name="postYear"
+                        id="postYear"
+                        class="cat_dropdown"
+                      >
+                        <option value="2019">2019</option>
+                        <option value="2020">2020</option>
+                      </select>
+                    </td>
+                    <td style="float: left">
+                      <div class="postAuthor">
+                        <input
+                          id="postAuthor"
+                          name="postAuthor"
+                          type="text"
+                          value=""
+                          size="30"
+                          aria-required="true"
+                          placeholder="Name"
+                          required="required"
+                        />
+                      </div>
+                    </td>
+                  </tr>
+                </table>
+              </div>
+              <div class="radio1">
+                <div class="post-button">
+                  <input
+                    class="cat_button"
+                    type="submit"
+                    value="Post"
+                    id="catcustomcontentbutton"
+                  />
+                </div>
+              </div>
+            </form>
+          </div>
+        </section>
+      </div>
+      <div class="readpost"></div>
+      <div class="sidebar">
+        <ul id="menu">
+          <a href="#t1">
+            <li class="icon fa fa-sync" id="cuatro"></li>
+          </a>
+          <a href="#t2">
+            <li class="icon fa fa-keyboard-o" id="dos"></li>
+          </a>
+          <a href="#t3">
+            <li class="icon fa fa-rocket" id="tres"></li>
+          </a>
+          <a href="#t4">
+            <li class="icon fa fa-bolt" id="uno"></li>
+          </a>
+          <a href="#t5">
+            <li
+              class="icon fa fa-plus-circle"
+              id="cinco"
+              onclick="addNew()"
+            ></li>
+          </a>
+        </ul>
+      </div>
+    </main>
+    <footer>
+      <div class="footer">All rights reserved.</div>
+    </footer>
+    <script src="js/constants.js"></script>
+    <script src="js/factories.js"></script>
+    <script src="js/navigation.js"></script>
+    <script src="js/store.js"></script>
+
+    <script src="js/pagination.js"></script>
+    <script src="js/postreader.js"></script>
+    <script src="js/slider.js"></script>
+    <script src="js/newpost.js"></script>
+  </body>
+</html>
