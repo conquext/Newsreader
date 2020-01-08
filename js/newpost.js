@@ -18,7 +18,6 @@ newPostForm.addEventListener("submit", handleNewPost);
 
 function handleNewPost(e) {
   e.preventDefault();
-  console.log("newpost", e.target);
   const title = e.target.postTitle.value;
   const desc = e.target.postDescription.value;
   const avatar = e.target.postImg.value;
@@ -31,9 +30,6 @@ function handleNewPost(e) {
   const date = formatDate(dd, mm, yy);
 
   addNewPost({ title, author, url, avatar });
-  console.log(author, avatar, title, dd, mm, yy, url);
-
-  //   {"author": "Mr. Bruce Brad", "avatar": "https://s3.amazonaws.com/uifaces/faces/twitter/scott_riley/128.jpg", "title": "Enterprise-wide eco-maniac core", "url": "http://tiana.com" }
 }
 
 function formatDate(dd, mm, yy) {

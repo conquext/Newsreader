@@ -5,15 +5,12 @@ function slide() {
   // slides informations
   var slides = document.querySelectorAll(".slide"),
     slidesLength = slides.length;
-  console.log(slidesLength);
 
   // slides array
   var slidesArr = [].slice.call(slides);
-  console.log(slidesArr);
 
   // reverse array sorting
   slidesArr = slidesArr.reverse();
-  console.log("slll", slidesArr);
 
   // slide current
   var slideCurrent = 0;
