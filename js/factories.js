@@ -102,17 +102,10 @@ function adjustNav() {
     sidebarMenu.style.top = null;
   }
   if (window.pageYOffset === 0) {
-    // console.log("me5");
-    // console.log(
-    //   footer.getBoundingClientRect(),
-    //   footerHeight,
-    //   document.body.getBoundingClientRect()
-    // );
     if (footer.getBoundingClientRect().top < 563) {
       footer.style = `bottom: 0`;
       sidebarMenu.style = "top: 25rem; transition: all .5s fade-out";
     } else {
-      //   console.log("me6");
       footer.style.bottom = null;
     }
   }
@@ -209,3 +202,24 @@ function updateComment(currentCommentNode, root) {
   // we would have actually updated the comment in real life
   root.style.display = "block";
 }
+
+var onDomChange = (function() {
+  var MutationObserver =
+    window.MutationObserver || window.WebKitMutationObserver;
+
+  return function(obj, callback) {
+    if (!obj || !obj.nodeType === 1) return; // validation
+
+    if (MutationObserver) {
+      // define a new observer
+      var obs = new MutationObserver(function(mutations, observer) {
+        callback(mutations);
+      });
+      // have the observer observe foo for changes in children
+      obs.observe(obj, { childList: true, subtree: true });
+    } else if (window.addEventListener) {
+      obj.addEventListener("DOMNodeInserted", callback, false);
+      obj.addEventListener("DOMNodeRemoved", callback, false);
+    }
+  };
+})();

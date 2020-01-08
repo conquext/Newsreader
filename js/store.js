@@ -183,3 +183,22 @@ window.onload = async () => {
   initPostReader();
   adjustNav();
 };
+
+onDomChange(main, function(m) {
+  var addedNodes = [],
+    removedNodes = [];
+
+  m.forEach(
+    record => record.addedNodes.length & addedNodes.push(...record.addedNodes)
+  );
+
+  m.forEach(
+    record =>
+      record.removedNodes.length & removedNodes.push(...record.removedNodes)
+  );
+
+  console.clear();
+  console.log("Added:", addedNodes, "Removed:", removedNodes);
+  initPostReader();
+  adjustNav();
+});

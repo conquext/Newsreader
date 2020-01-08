@@ -66,8 +66,6 @@ async function readNews(e) {
     </figcaption></figure>`;
     }
 
-    console.log("IMGFIGURE", comments);
-
     let commentContainer = document.createElement("div");
     commentContainer.classList.add("entry-comments");
     commentContainer.setAttribute("id", "comments");

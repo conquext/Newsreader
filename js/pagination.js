@@ -91,6 +91,7 @@ let container = document.querySelector(".main"),
       let totalPages = this.totalPages(items, perPage),
         pageButtons = this.createButtons(totalPages, currentPage);
 
+      initPostReader();
       // append page button to container
       container.innerHTML += pageButtons;
       // attach event listener for newly added buttons
@@ -113,6 +114,7 @@ const pageSplit = function(perPage, start) {
   }
   // paginate the items starting at page 1
   paginate.createPage(this, start, perPage);
+  initPostReader();
 };
 
 // run page split on page load
