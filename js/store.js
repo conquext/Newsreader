@@ -9,7 +9,7 @@ const state = {
     this.article[st] = [...this[article], article];
   },
   async getArticleById(id) {
-    return this.article.filter(article => {
+    return this.article.filter((article) => {
       article.id === id;
     });
   },
@@ -27,7 +27,7 @@ const state = {
   },
   getError() {
     return this.error;
-  }
+  },
 };
 
 // article has {id, images, comments, author, url, avatar, title}
@@ -36,7 +36,7 @@ const getComments = async () => {
   let response;
   let res = await fetch(`https://jsonplaceholder.typicode.com/comments`);
   res = await res.json();
-  if (res.length >= 1) {
+  if (res && res.length >= 1) {
     response = res;
   } else throw error;
   state.loadArticle(response);
@@ -49,7 +49,7 @@ const getArticles = async () => {
   let response;
   let res = await fetch(`${api}`);
   res = await res.json();
-  if (res.length >= 1) {
+  if (res && res.length >= 1) {
     response = res;
   }
   state.loadArticle(response);
@@ -61,7 +61,9 @@ const getArticleById = async (id, source) => {
   if (source === "local") {
     let artcle;
     const articles = state.article;
-    artcle = articles.filter(article => parseInt(article.id) === parseInt(id));
+    artcle = articles.filter(
+      (article) => parseInt(article.id) === parseInt(id)
+    );
     if (artcle.length >= 1) {
       // [title, date, content, url, author, comments];
       const {
@@ -70,7 +72,7 @@ const getArticleById = async (id, source) => {
         content = "",
         author = "anonymous",
         url,
-        avatar: image
+        avatar: image,
       } = artcle[0];
       return { title, date, content, author, url, image, comments };
     } else return null;
@@ -82,7 +84,7 @@ const getArticleById = async (id, source) => {
     if (res) {
       let commentsFound = await getComments();
       comments = commentsFound.filter(
-        comm => parseInt(comm.postId) === parseInt(id)
+        (comm) => parseInt(comm.postId) === parseInt(id)
       );
 
       response = res;
@@ -92,7 +94,7 @@ const getArticleById = async (id, source) => {
         content = "",
         author = "anonymous",
         url,
-        avatar: image
+        avatar: image,
       } = res;
       return { title, date, content, author, url, image, comments };
     }
@@ -108,7 +110,7 @@ const populateArticles = async () => {
     let commentsFound = await getComments();
     suspense(["main", "footer", "sidebar"], main, false);
 
-    if (articlesFound.length > 0) {
+    if (articlesFound && articlesFound.length > 0) {
       let markup;
       const articleHolder = [];
 
@@ -117,19 +119,29 @@ const populateArticles = async () => {
         articleHolder[i] = document.createElement("section");
         articleHolder[i].classList.add("section-news");
         comments = commentsFound.filter(
-          comm => parseInt(comm.postId) === parseInt(articlesFound[i].id)
+          (comm) => parseInt(comm.postId) === parseInt(articlesFound[i].id)
         );
         articlesFound[i].author = articlesFound[i].author || "anonymous";
         articlesFound[i].comments = articlesFound[i].comments || comments;
 
         markup = `<div class="section-news__card item">
           <div class="icon">
-            <a href=${articlesFound[i].url}><img src=${articlesFound[i].avatar} alt="img" /> </a>
+            <a href=${articlesFound[i].url}><img src=${
+          articlesFound[i].avatar
+        } alt="img" /> </a>
           </div>   
           <div class="item-in">
             <h4>${articlesFound[i].title}</h4>
             <div class="seperator"></div>
-            <div class="section-info"><span>#${articlesFound[i].id}</span> <span>${articlesFound[i].author}</span> <span>|</span> <span>${articlesFound[i].comments.length} comments</span> <span>|</span> <span>${articlesFound[i].createdAt}</span></div>
+            <div class="section-info"><span>#${
+              articlesFound[i].id
+            }</span> <span>${
+          articlesFound[i].author
+        }</span> <span>|</span> <span>${
+          articlesFound[i].comments ? articlesFound[i].comments.length : 0
+        } comments</span> <span>|</span> <span>${
+          articlesFound[i].createdAt
+        }</span></div>
             <p>
             </p>
           </div>
@@ -137,7 +149,7 @@ const populateArticles = async () => {
         articleHolder[i].innerHTML = markup;
       }
 
-      articleHolder.forEach(aHolding =>
+      articleHolder.forEach((aHolding) =>
         document.querySelector(".main").append(aHolding)
       );
     } else {
